@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OJK Saham Anki Deck</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -15,21 +19,48 @@
         </header>
 
         <main>
-            <section class="download-section">
-                <h2>Download Deck</h2>
-                <p>Unduh file CSV di bawah ini dan import ke dalam aplikasi Anki.</p>
-                <a href="anki_import.csv" class="btn primary-btn" download>
-                    Download .CSV
-                </a>
-                <p class="small-text">Cara Import: Buka Anki -> File -> Import -> Pilih file ini.</p>
+            <section class="study-section">
+                <div class="study-header">
+                    <h2>Mulai Belajar</h2>
+                    <div class="progress-container">
+                        <span id="progress-text">Kartu 0 / 0</span>
+                        <div class="progress-bar">
+                            <div id="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scene">
+                    <div class="card" id="flashcard">
+                        <div class="card-face card-front">
+                            <div class="card-content">
+                                <span class="label">PERTANYAAN</span>
+                                <h3 id="card-front-text">Loading...</h3>
+                                <p class="hint">(Klik untuk melihat jawaban)</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-content">
+                                <span class="label">JAWABAN</span>
+                                <p id="card-back-text">...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="btn-prev" class="btn secondary-btn" disabled>← Sebelumnya</button>
+                    <button id="btn-flip" class="btn action-btn">Balik Kartu (Spasi)</button>
+                    <button id="btn-next" class="btn primary-btn">Selanjutnya →</button>
+                </div>
+
+                <button id="btn-shuffle" class="btn text-btn">🔀 Acak Kartu</button>
             </section>
 
-            <section class="preview-section">
-                <h2>Preview Materi</h2>
-                <div id="card-container" class="card-grid">
-                    <!-- Cards will be populated by JS -->
-                    <p>Loading preview...</p>
-                </div>
+            <section class="download-section">
+                <h3>Download Manual</h3>
+                <p>Ingin belajar offline? Unduh file CSV untuk Anki.</p>
+                <a href="anki_import.csv" class="btn small-btn" download>Download .CSV</a>
             </section>
         </main>
 
@@ -40,4 +71,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

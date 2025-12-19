@@ -1,5 +1,6 @@
 :root {
-    --primary-color: #D32F2F; /* OJK Red-ish */
+    --primary-color: #D32F2F;
+    /* OJK Red-ish */
     --secondary-color: #212121;
     --bg-color: #f4f4f4;
     --card-bg: #ffffff;
@@ -15,7 +16,9 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Oswald', sans-serif;
     color: var(--secondary-color);
 }
@@ -37,76 +40,183 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
-.download-section {
-    text-align: center;
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-bottom: 3rem;
+/* Study Mode Styles */
+.study-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    margin: 10px 0;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 500;
-    transition: background 0.3s;
+.study-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-.primary-btn {
+.progress-container {
+    text-align: right;
+    width: 200px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    height: 100%;
     background-color: var(--primary-color);
-    color: white;
-    font-size: 1.2rem;
+    width: 0%;
+    transition: width 0.3s ease;
 }
 
-.primary-btn:hover {
-    background-color: #b71c1c;
+/* Card 3D Flip */
+.scene {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    perspective: 1000px;
+    margin-bottom: 1.5rem;
 }
 
-.small-text {
-    font-size: 0.9rem;
-    color: #666;
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
 }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+.card.is-flipped {
+    transform: rotateY(180deg);
 }
 
-.flashcard {
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    border-left: 4px solid var(--primary-color);
-}
-
-.flashcard h3 {
-    font-size: 1.1rem;
-    margin-top: 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.flashcard p {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 0;
-}
-
-footer {
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
     text-align: center;
-    margin-top: 4rem;
-    color: #888;
+    border: 1px solid #eee;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #fff8f8;
+    border: 2px solid var(--primary-color);
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-content p {
+    font-size: 1.1rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #999;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1rem;
+}
+
+.action-btn {
+    background-color: var(--text-color);
+    color: white;
+}
+
+.secondary-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+.secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.small-btn {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    text-decoration: underline;
     font-size: 0.9rem;
 }
 
-footer a {
-    color: var(--primary-color);
-    text-decoration: none;
+/* Simplified download section */
+.download-section {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    background: none;
+    box-shadow: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .scene {
+        height: 300px;
+    }
+
+    .card-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
