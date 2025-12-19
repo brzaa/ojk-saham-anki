@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJK Saham Anki Deck</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OJK Saham Anki Deck</h1>
+            <p>Hafalkan konsep pasar modal dan saham dari materi OJK dengan mudah.</p>
+        </header>
+
+        <main>
+            <section class="download-section">
+                <h2>Download Deck</h2>
+                <p>Unduh file CSV di bawah ini dan import ke dalam aplikasi Anki.</p>
+                <a href="anki_import.csv" class="btn primary-btn" download>
+                    Download .CSV
+                </a>
+                <p class="small-text">Cara Import: Buka Anki -> File -> Import -> Pilih file ini.</p>
+            </section>
+
+            <section class="preview-section">
+                <h2>Preview Materi</h2>
+                <div id="card-container" class="card-grid">
+                    <!-- Cards will be populated by JS -->
+                    <p>Loading preview...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Sumber: <a href="https://sikapiuangmu.ojk.go.id/">Sikapi Uangmu - OJK</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
